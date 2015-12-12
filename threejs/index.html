@@ -5,6 +5,13 @@
     <meta name="viewport" content="width=device-width, user-scalable=no, minimum-scale=1.0, maximum-scale=1.0">
 </head>
 <body>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+        }
+    </style>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r73/three.js" ></script>
     <script>
         var scene = new THREE.Scene();
@@ -20,13 +27,12 @@
         scene.add( cube );
         camera.position.z = 5;
 
-        var render = function () {
-          requestAnimationFrame( render );
-          cube.rotation.x += 0.01;
-          cube.rotation.y += 0.01;
-          renderer.render( scene, camera );
-        };
-
+        function render() {
+            requestAnimationFrame( render );
+            cube.rotation.x += 0.05;
+            cube.rotation.y += 0.05;
+            renderer.render( scene, camera );
+        }
         render();
 
     </script>
